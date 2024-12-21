@@ -10,13 +10,16 @@ export default function DragAndDrop() {
       <div>
         <p>
           Drag & Drop a file or &nbsp;
-          <label htmlFor="browse" className="pointer text-clr_1">
+          <label
+            htmlFor="browse"
+            className="pointer text-clr_1 hover:text-red-400"
+          >
             browse files
             <input
               type="file"
               name=""
               id="browse"
-              className=" opacity-0 absolute -z-[1]"
+              className="opacity-0 absolute -z-[1]"
               accept=".jpg, .png, .jpeg"
             />
           </label>
