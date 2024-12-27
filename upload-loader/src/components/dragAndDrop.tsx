@@ -17,7 +17,7 @@ export default function DragAndDrop() {
             browse files
             <input
               type="file"
-              name=""
+              name="target"
               id="browse"
               className="opacity-0 absolute -z-[1]"
               accept=".jpg, .png, .jpeg"
