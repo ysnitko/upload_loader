@@ -1,6 +1,29 @@
+'use client';
 import Image from 'next/image';
+import { useActionState } from 'react';
 
 export default function DragAndDrop() {
+  const [state, submitAction] = useActionState(handleFileChange, {
+    data: null,
+    error: null,
+  });
+
+  const handleFileChange = async (prevstate: any, formData: Promise<void>) => {
+    const file = formData.get('file');
+
+    try {
+      const response = await fetch('/api/', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+      console.log(result);
+      // Обработка успешного результата
+    } catch (error) {
+      console.error('Upload failed:', error);
+    }
+  };
   return (
     <form
       action=""
@@ -17,7 +40,7 @@ export default function DragAndDrop() {
             browse files
             <input
               type="file"
-              name="target"
+              name="file"
               id="browse"
               className="opacity-0 absolute -z-[1]"
               accept=".jpg, .png, .jpeg"
