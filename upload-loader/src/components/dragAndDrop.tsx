@@ -36,10 +36,20 @@ export default function DragAndDrop() {
     setMessage(result.message);
   };
 
+  const handleDrop = (e: React.DragEvent<HTMLElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const droppedFiles = e.dataTransfer.files[0];
+
+    setFile(droppedFiles);
+    console.log(file);
+  };
+
   return (
     <form
       className="flex flex-col justify-center items-center size-full gap-3"
       onSubmit={handlerSubmit}
+      onDrop={handleDrop}
     >
       <Image src={'/exit.svg'} width={40} height={40} alt="link" />
       <div>
