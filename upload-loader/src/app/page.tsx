@@ -1,5 +1,7 @@
 'use client';
 import Image from 'next/image';
+import DownloadBtn from '@/components/downloadBtn';
+import ShareBtn from '@/components/shareBtn';
 import { useState } from 'react';
 
 export default function Home() {
@@ -91,20 +93,8 @@ export default function Home() {
         </div>
         {statusUpload && (
           <div className="flex gap-3 mt-8 justify-center">
-            <button
-              type="button"
-              className="flex gap-2 bg-clr_1 taxt-[10px] text-clr_5 rounded-lg justify-center items-center px-3 py-2"
-            >
-              <Image src={'Link.svg'} width={15} height={15} alt="share" />
-              <p>Share</p>
-            </button>
-            <button
-              type="button"
-              className="flex gap-2 bg-clr_1 taxt-[10px] text-clr_5 rounded-lg justify-center items-center px-3 py-2"
-            >
-              <Image src={'download.svg'} width={15} height={15} alt="share" />
-              <p>Download</p>
-            </button>
+            <ShareBtn file={file} />
+            <DownloadBtn file={file} />
           </div>
         )}
       </div>
